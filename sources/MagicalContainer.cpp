@@ -1,106 +1,210 @@
-#include "MagicalContainer.h"
+#include "MagicalContainer.hpp"
+
+MagicalContainer::MagicalContainer() {}
+
+MagicalContainer::~MagicalContainer() {}
 
 void MagicalContainer::addElement(int element)
 {
-    container.push_back(element);
 }
 
 void MagicalContainer::removeElement(int element)
 {
 }
 
-MagicalContainer::MagicalContainer() {}
-
-MagicalContainer::~MagicalContainer() {}
-
-int MagicalContainer::size() const
+int MagicalContainer::size()
 {
     return container.size();
 }
 
 // AscendingIterator
-AscendingIterator::AscendingIterator(MagicalContainer &container) : container(container)
+MagicalContainer::AscendingIterator::AscendingIterator(MagicalContainer &container) : container(&container)
 {
 }
 
-AscendingIterator::AscendingIterator(const AscendingIterator &other) : container(other.container)
+MagicalContainer::AscendingIterator::AscendingIterator(const AscendingIterator &other) : container(other.container)
 {
 }
 
-AscendingIterator::~AscendingIterator() = default;
+MagicalContainer::AscendingIterator::~AscendingIterator() {}
 
-AscendingIterator &AscendingIterator::operator=(const AscendingIterator &other)
+MagicalContainer::AscendingIterator &MagicalContainer::AscendingIterator::operator=(const AscendingIterator &other)
+{
+    return *this;
+}
+
+bool MagicalContainer::AscendingIterator::AscendingIterator::operator>(const AscendingIterator &other)
+{
+
+    return false;
+}
+
+bool MagicalContainer::AscendingIterator::AscendingIterator::operator<(const AscendingIterator &other)
+{
+
+    return false;
+}
+
+bool MagicalContainer::AscendingIterator::AscendingIterator::operator==(const AscendingIterator &other) const
+{
+
+    return false;
+}
+
+MagicalContainer::AscendingIterator &MagicalContainer::AscendingIterator::operator++()
 {
 
     return *this;
 }
 
-bool AscendingIterator::AscendingIterator::operator>(const AscendingIterator &other) const
+bool MagicalContainer::AscendingIterator::AscendingIterator::operator!=(const AscendingIterator &other) const
 {
 
-    return false;
+    return !(*this == other);
 }
 
-bool AscendingIterator::AscendingIterator::operator<(const AscendingIterator &other) const
-{
-
-    return false;
-}
-
-bool AscendingIterator::AscendingIterator::operator==(const AscendingIterator &other) const
-{
-
-    return false;
-}
-
-AscendingIterator &AscendingIterator::operator++()
-{
-
-    return *this;
-}
-
-bool AscendingIterator::AscendingIterator::operator!=(const AscendingIterator &other) const
-{
-
-    return false;
-}
-
-int AscendingIterator::AscendingIterator::operator*()
+int MagicalContainer::AscendingIterator::operator*() const
 {
 
     return 0;
 }
 
-AscendingIterator &AscendingIterator::begin()
+MagicalContainer::AscendingIterator MagicalContainer::AscendingIterator::begin()
 {
 
     return *this;
 }
 
-AscendingIterator &AscendingIterator::end()
+MagicalContainer::AscendingIterator MagicalContainer::AscendingIterator::end()
 {
 
     return *this;
 }
 
 // SideCrossIterator
-SideCrossIterator::SideCrossIterator(MagicalContainer &container) : AscendingIterator(container)
+MagicalContainer::SideCrossIterator::SideCrossIterator(MagicalContainer &container) : container(&container)
 {
 }
 
-// SideCrossIterator::SideCrossIterator(const SideCrossIterator &other) : AscendingIterator(other.container)
-// {
-// }
+MagicalContainer::SideCrossIterator::SideCrossIterator(const SideCrossIterator &other) : container(other.container)
+{
+}
 
-// SideCrossIterator::~SideCrossIterator() = default;
+MagicalContainer::SideCrossIterator::~SideCrossIterator() {}
+
+MagicalContainer::SideCrossIterator &MagicalContainer::SideCrossIterator::operator=(const SideCrossIterator &other)
+{
+    return *this;
+}
+
+bool MagicalContainer::SideCrossIterator::SideCrossIterator::operator>(const SideCrossIterator &other)
+{
+
+    return false;
+}
+
+bool MagicalContainer::SideCrossIterator::SideCrossIterator::operator<(const SideCrossIterator &other)
+{
+
+    return false;
+}
+
+bool MagicalContainer::SideCrossIterator::SideCrossIterator::operator==(const SideCrossIterator &other) const
+{
+
+    return false;
+}
+
+MagicalContainer::SideCrossIterator &MagicalContainer::SideCrossIterator::operator++()
+{
+
+    return *this;
+}
+
+bool MagicalContainer::SideCrossIterator::SideCrossIterator::operator!=(const SideCrossIterator &other) const
+{
+
+    return !(*this == other);
+}
+
+int MagicalContainer::SideCrossIterator::operator*() const
+{
+
+    return 0;
+}
+
+MagicalContainer::SideCrossIterator MagicalContainer::SideCrossIterator::begin()
+{
+
+    return *this;
+}
+
+MagicalContainer::SideCrossIterator MagicalContainer::SideCrossIterator::end()
+{
+
+    return *this;
+}
 
 // PrimeIterator
-PrimeIterator::PrimeIterator(MagicalContainer &container) : AscendingIterator(container)
+MagicalContainer::PrimeIterator::PrimeIterator(MagicalContainer &container) : container(&container)
 {
 }
 
-// PrimeIterator::PrimeIterator(const PrimeIterator &other) : container(container)
-// {
-// }
+MagicalContainer::PrimeIterator::PrimeIterator(const PrimeIterator &other) : container(other.container)
+{
+}
 
-// PrimeIterator::~PrimeIterator() = default;
+MagicalContainer::PrimeIterator::~PrimeIterator() {}
+
+MagicalContainer::PrimeIterator &MagicalContainer::PrimeIterator::operator=(const PrimeIterator &other)
+{
+    return *this;
+}
+
+bool MagicalContainer::PrimeIterator::PrimeIterator::operator>(const PrimeIterator &other)
+{
+
+    return false;
+}
+
+bool MagicalContainer::PrimeIterator::PrimeIterator::operator<(const PrimeIterator &other)
+{
+
+    return false;
+}
+
+bool MagicalContainer::PrimeIterator::PrimeIterator::operator==(const PrimeIterator &other) const
+{
+
+    return false;
+}
+
+MagicalContainer::PrimeIterator &MagicalContainer::PrimeIterator::operator++()
+{
+
+    return *this;
+}
+
+bool MagicalContainer::PrimeIterator::PrimeIterator::operator!=(const PrimeIterator &other) const
+{
+
+    return !(*this == other);
+}
+
+int MagicalContainer::PrimeIterator::operator*() const
+{
+
+    return 0;
+}
+
+MagicalContainer::PrimeIterator MagicalContainer::PrimeIterator::begin()
+{
+
+    return *this;
+}
+
+MagicalContainer::PrimeIterator MagicalContainer::PrimeIterator::end()
+{
+
+    return *this;
+}
