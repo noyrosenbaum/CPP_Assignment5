@@ -20,9 +20,6 @@ public:
 
     class AscendingIterator
     {
-    private:
-        MagicalContainer *container;
-
     public:
         AscendingIterator();
 
@@ -34,9 +31,9 @@ public:
 
         AscendingIterator &operator=(const AscendingIterator &other);
 
-        bool operator>(const AscendingIterator &other);
+        bool operator>(const AscendingIterator &other) const;
 
-        bool operator<(const AscendingIterator &other);
+        bool operator<(const AscendingIterator &other) const;
 
         bool operator==(const AscendingIterator &other) const;
 
@@ -53,8 +50,6 @@ public:
 
     class SideCrossIterator
     {
-    private:
-        MagicalContainer *container;
 
     public:
         SideCrossIterator();
@@ -63,9 +58,9 @@ public:
         ~SideCrossIterator();
         SideCrossIterator &operator=(const SideCrossIterator &other);
 
-        bool operator>(const SideCrossIterator &other);
+        bool operator>(const SideCrossIterator &other) const;
 
-        bool operator<(const SideCrossIterator &other);
+        bool operator<(const SideCrossIterator &other) const;
 
         bool operator==(const SideCrossIterator &other) const;
 
@@ -82,9 +77,6 @@ public:
 
     class PrimeIterator
     {
-    private:
-        MagicalContainer *container;
-        size_t index;
 
     public:
         PrimeIterator();
@@ -93,9 +85,9 @@ public:
         ~PrimeIterator();
         PrimeIterator &operator=(const PrimeIterator &other);
 
-        bool operator>(const PrimeIterator &other);
+        bool operator>(const PrimeIterator &other) const;
 
-        bool operator<(const PrimeIterator &other);
+        bool operator<(const PrimeIterator &other) const;
 
         bool operator==(const PrimeIterator &other) const;
 
