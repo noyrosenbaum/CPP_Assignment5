@@ -26,6 +26,14 @@ void MagicalContainer::addElement(int element)
     }
     auto it = lower_bound(container.begin(), container.end(), element);
     container.insert(it, element);
+    primeContainer.clear();
+    for (size_t i = 0; i < container.size(); i++)
+    {
+        if (isPrime(container[i]))
+        {
+            primeContainer.push_back(&container[i]);
+        }
+    }
 }
 
 void MagicalContainer::removeElement(int element)
@@ -54,6 +62,7 @@ MagicalContainer::AscendingIterator::~AscendingIterator() {}
 
 MagicalContainer::AscendingIterator &MagicalContainer::AscendingIterator::operator=(const AscendingIterator &other)
 {
+    if(this->ascContainer != other.ascContainer) throw runtime_error("Different containers");
     if (this != &other)
     {
         ascContainer = other.ascContainer;
@@ -115,6 +124,7 @@ MagicalContainer::SideCrossIterator::~SideCrossIterator() {}
 
 MagicalContainer::SideCrossIterator &MagicalContainer::SideCrossIterator::operator=(const SideCrossIterator &other)
 {
+    if(this->sideContainer != other.sideContainer) throw runtime_error("Different containers");
     if (this != &other)
     {
         sideContainer = other.sideContainer;
@@ -178,6 +188,7 @@ MagicalContainer::PrimeIterator::~PrimeIterator() {}
 
 MagicalContainer::PrimeIterator &MagicalContainer::PrimeIterator::operator=(const PrimeIterator &other)
 {
+    if(this->primeContainer != other.primeContainer) throw runtime_error("Different containers");
     if (this != &other)
     {
         primeContainer = other.primeContainer;
@@ -216,14 +227,14 @@ bool MagicalContainer::PrimeIterator::operator!=(const PrimeIterator &other) con
     return !(*this == other);
 }
 
-int MagicalContainer::PrimeIterator::operator*()
+int MagicalContainer::PrimeIterator::operator*() const 
 {
     return primeContainer->container[index];
 }
 
 MagicalContainer::PrimeIterator MagicalContainer::PrimeIterator::begin()
 {
-    return PrimeIterator(*primeContainer);
+     return PrimeIterator(*primeContainer);
 }
 
 MagicalContainer::PrimeIterator MagicalContainer::PrimeIterator::end()

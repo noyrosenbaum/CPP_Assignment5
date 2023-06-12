@@ -81,7 +81,7 @@ public:
         bool operator==(const PrimeIterator &other) const;
         bool operator!=(const PrimeIterator &other) const;
         PrimeIterator &operator++();
-        int operator*();
+        int operator*() const;
         PrimeIterator begin();
         PrimeIterator end();
     };
